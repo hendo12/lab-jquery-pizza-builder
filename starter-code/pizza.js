@@ -76,7 +76,7 @@ let pizzaCost = 13;     //default cheese pizza cost
 // }
 
 /*---------------Joint Active Toggle & Price Calculator------------*/
-$('strong').text("$" + pizzaCost) //setting default price of pizza to $13
+$('strong').text("$" + pizzaCost) //setting default price of pizza to $13 (3 toppings active by default)
 
 
 $('.btn-pepperonni').click(() => {
@@ -103,6 +103,17 @@ $('.btn-mushrooms').click(() => {
   $('strong').text("$" + pizzaCost)
 })
 
+$('.btn-green-peppers').click(() => {
+  $('.btn-green-peppers').toggleClass("active");
+  if($('.btn-green-peppers').hasClass('active')) {
+    $('#gp-option').toggleClass('hide')
+    pizzaCost += 1;
+  } else {
+    $('#gp-option').toggleClass('hide');
+    pizzaCost -= 1;
+  }
+  $('strong').text("$" + pizzaCost)
+})
 
 $('.btn-sauce').click(() => {
   $('.btn-sauce').toggleClass("active");
